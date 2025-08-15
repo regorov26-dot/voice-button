@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#e53935" />
+  <title>Кнопка: запись 5 сек · Мягкая обрезка тишины · Сброс</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="stage">
+    <div class="topbar">
+      <button id="resetBtn" class="btn" disabled>Сбросить</button>
+    </div>
+
+    <!-- Визуальный индикатор (только во время записи) -->
+    <div id="recIndicator" class="rec-indicator-wrap" aria-hidden="true">
+      <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+      <div class="bar"></div><div class="bar"></div>
+    </div>
+
+    <!-- Большая красная кнопка -->
+    <button id="mainBtn" class="big-btn" aria-label="Запись / Пуск">Запись</button>
+
+    <!-- Статус / подсказки -->
+    <div id="status" class="status">
+      Нажми <strong>«Запись»</strong> — запись до 5 сек. Повторное нажатие во время записи — «Стоп».<br/>
+      После — <strong>«Пуск»</strong> (вибрация при старте). «Сбросить» — записать заново.
+    </div>
+  </div>
+
+  <!-- Модальное подтверждение сброса -->
+  <div id="confirmOverlay" class="overlay" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+      <h3 id="confirmTitle">Сбросить запись?</h3>
+      <p>Текущий клип будет удалён, и можно будет записать заново.</p>
+      <div class="row">
+        <button id="confirmCancel" class="btn">Отмена</button>
+        <button id="confirmOk" class="btn btn-danger">Сбросить</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
